@@ -16,5 +16,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: user/app:latest
+          tags: ronaldddd/test-repo:latest
       - run: echo "🍏 This job's status is ${{ job.status }}."
