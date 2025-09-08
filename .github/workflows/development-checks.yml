@@ -16,12 +16,12 @@ jobs:
       uses: astral-sh/setup-uv@v6
 
     - name: Install the project
-      run: uv sync --locked --all-extras --dev
+      run: time uv sync --locked --all-extras --dev
 
     # ------------------ SAST Steps ------------------ #
 
     - name: Run Bandit SAST scan
-      run: uv run bandit -r ./app -f json -o bandit-report.json
+      run: time uv run bandit -r ./app -f json -o bandit-report.json
       continue-on-error: true 
 
     - name: SonarQube Scan
