@@ -2,6 +2,8 @@ name: Development Checks
 run-name: Dev checks on ${{ github.ref_name }}
 on:
   push:
+    paths:
+      - app/**
     branches-ignore:
       - main
 jobs:
