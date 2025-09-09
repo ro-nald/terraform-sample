@@ -1,8 +1,12 @@
 name: Merge to Main
 run-name: Merging ${{ github.ref_name }} into Main
-on: [push]
+on:
+    pull_request:
+      types: [closed]
+      branches: [main]
 jobs:
   Create-Service-Container-Image:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       -
@@ -11,10 +15,9 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - 
+      -
         name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: true
           tags: ronaldddd/test-repo:latest
-      - run: echo "🍏 This job's status is ${{ job.status }}."

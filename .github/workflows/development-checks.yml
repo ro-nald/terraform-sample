@@ -1,13 +1,16 @@
 name: Development Checks
 run-name: Dev checks on ${{ github.ref_name }}
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
   Run-Development-Checks:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0 
+        fetch-depth: 0
 
     - name: "Set up Python to pinned version"
       uses: actions/setup-python@v5
