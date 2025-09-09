@@ -1,5 +1,5 @@
-name: Merge to Main
-run-name: Merging ${{ github.ref_name }} into Main
+name: Evaluate release candidate
+run-name: Evaluating ${{ github.ref_name }} as Release Candidate
 on:
     pull_request:
       types: [closed]

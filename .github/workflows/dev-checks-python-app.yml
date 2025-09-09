@@ -1,4 +1,4 @@
-name: Development Checks
+name: Development Checks - Python application
 run-name: Dev checks on ${{ github.ref_name }}
 on:
   push:
